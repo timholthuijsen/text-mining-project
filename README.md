@@ -11,9 +11,17 @@ To combat food waste and inspire people with recipe ideas we thought of creating
 - For a given dish, which dishes are most similar?
 - Can we even predict cuisines according to recipes (i.e. some ingredients combinations that are unique for a specific cuisines )
 
-## Dataset
-https://esha.com/resources/additional-databases/
-Useful for the “vegetarian” option: A list of all meat products http://jamesburden.co.uk/products/meat-poultry-and-game/full-list-of-meat-products/
+## Dataset and Setup
+1. Clone this repository
+2. Download the following files from https://esha.com/resources/additional-databases/
+- ArmedForcesRecipes.exl
+- CommonRecipes.exl
+- EthnicRecipes.exl
+- VegetatianRecipes.exl
+3. Create a folder called "data" in this directory.
+4. Create a file named .gitignore in this directory and type "data/" inside.
+5. Move the downloaded datasets into the data folder.
+
 
 ## A tentative list of milestones for the project
 Tasks distribution will be determined later, with fair work distribution in mind.
