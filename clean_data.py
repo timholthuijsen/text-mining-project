@@ -1,6 +1,7 @@
 import glob
 import re
 import pickle
+import string
 
 def getDatabases() -> list:
     """
@@ -119,3 +120,12 @@ def head(data: list, n_lines: int = 5) -> None:
     for i, line in enumerate(data):
         if i < n_lines:
             print(f"{i}\t{line}")
+            
+def formatFile(data: list) -> list:
+    cleaned_db = []
+    for sentence in data:
+        cleaned_sentence = []
+        for word, tag in sentence:
+            cleaned_sentence.append((word.strip(string.punctuation + " ").lower(), tag))
+        cleaned_db.append(cleaned_sentence)
+    return cleaned_db

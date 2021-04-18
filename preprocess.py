@@ -70,9 +70,10 @@ clean_db = cd.cleanFile(dbs[0])
 # Print 10 lines
 cd.head(clean_db, 10)
 
-# PoS-Tag and lemmatize
+# PoS-Tag, lemmatize and format
 postagged = pos_tag_db(clean_db)
 lemmatized = lemmatize_db(postagged, [".", "X"])
+formatted = cd.formatFile(lemmatized)
 
 # Print 5 lines from the result
-cd.head(lemmatized)
+cd.head(formatted)
