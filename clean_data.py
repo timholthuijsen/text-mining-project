@@ -122,6 +122,22 @@ def head(data: list, n_lines: int = 5) -> None:
             print(f"{i}\t{line}")
             
 def formatFile(data: list) -> list:
+    """
+    Format a pos-tagged database.
+    Remove whitespace and punctuation from end and start of words.
+    Get all words lowercase
+
+    Parameters
+    ----------
+    data : list
+        Database to format.
+
+    Returns
+    -------
+    list
+        Formatted dataset.
+
+    """
     cleaned_db = []
     for sentence in data:
         cleaned_sentence = []
