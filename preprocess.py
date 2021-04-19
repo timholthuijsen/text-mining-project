@@ -3,7 +3,7 @@
 import nltk
 from nltk.corpus import wordnet as wn
 
-import clean_data as cd
+import helpers as hp
 
 
 MAP = {"VERB" : wn.VERB, "NOUN" : wn.NOUN, "ADJ" : wn.ADJ, "ADV" : wn.ADV}
@@ -62,18 +62,18 @@ def lemmatize_db(db: list, exclude: list = []) -> list:
 # EXAMPLE USE:
     
 # Get a list of available databases
-dbs = cd.getDatabases()
+dbs = hp.getDatabases()
 
 # Clean the first one
-clean_db = cd.cleanFile(dbs[0])
+clean_db = hp.cleanFile(dbs[0])
 
 # Print 10 lines
-cd.head(clean_db, 10)
+hp.head(clean_db, 10)
 
 # PoS-Tag, lemmatize and format
 postagged = pos_tag_db(clean_db)
 lemmatized = lemmatize_db(postagged, [".", "X"])
-formatted = cd.formatFile(lemmatized)
+formatted = hp.formatFile(lemmatized)
 
 # Print 5 lines from the result
-cd.head(formatted)
+hp.head(formatted)
