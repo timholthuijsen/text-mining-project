@@ -67,7 +67,7 @@ dbs = hp.getDatabases()
 # Clean the first one
 clean_db = hp.cleanFile(dbs[0])
 
-# Print 10 lines
+# Print first 10 lines of database
 hp.head(clean_db, 10)
 
 # PoS-Tag, lemmatize and format
