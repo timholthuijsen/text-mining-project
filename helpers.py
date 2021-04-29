@@ -2,6 +2,7 @@ import glob
 import re
 import pickle
 import string
+import pandas as pd
 
 def getDatabases() -> list:
     """
@@ -145,3 +146,36 @@ def formatFile(data: list) -> list:
             cleaned_sentence.append((word.strip(string.punctuation + " ").lower(), tag))
         cleaned_db.append(cleaned_sentence)
     return cleaned_db
+
+def read_csv(csv: str = 'data/nyt-ingredients-snapshot-2015.csv') -> list:
+    """
+    Read a given CSV file and save rows as separate dictionaries
+
+    Parameters
+    ----------
+    data : str
+        Directory to csv file
+
+    Returns
+    -------
+    list
+        List of rows as dictionaries
+
+    """
+    data = pd.read_csv(csv)
+    keys = data.columns
+    values = data.values
+    rows = []
+    for value in values:
+        d = {}
+        for i, key in enumerate(keys):
+            d[key] = value[i]
+        rows.append(d)
+    return rows
+    
+    
+    
+    
+    
+    
+    
