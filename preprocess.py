@@ -2,7 +2,7 @@
 
 import nltk
 from nltk.corpus import wordnet as wn
-
+import pandas as pd
 import helpers as hp
 
 
@@ -77,3 +77,26 @@ formatted = hp.formatFile(lemmatized)
 
 # Print 5 lines from the result
 hp.head(formatted)
+
+# extracting ingredients 
+
+# read json files
+df1 = pd.read_json("data/train.json")
+df2 = pd.read_json("data/test.json")
+
+# extract ingredients coloumn and convert to one list of ingredients
+df1_ingre = df1["ingredients"]
+df2_ingre = df2["ingredients"]
+
+all_ingre = pd.Series.tolist(df1_ingre) + pd.Series.tolist(df2_ingre)
+
+# convert list of lists to a flat list
+list_of_ingre = []
+
+for element in all_ingre:
+    for item in element:
+        list_of_ingre.append(item)
+
+# remove duplicates        
+final_ingre = list(dict.fromkeys(list_of_ingre)) # list of 7137 ingredients 
+        
