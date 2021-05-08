@@ -4,6 +4,7 @@ import nltk
 from nltk.corpus import wordnet as wn
 import pandas as pd
 import helpers as hp
+import csv
 
 
 MAP = {"VERB" : wn.VERB, "NOUN" : wn.NOUN, "ADJ" : wn.ADJ, "ADV" : wn.ADV}
@@ -99,4 +100,8 @@ for element in all_ingre:
 
 # remove duplicates        
 final_ingre = list(dict.fromkeys(list_of_ingre)) # list of 7137 ingredients 
-        
+
+
+with open('final_ingr.csv', 'w', newline='') as myfile:
+    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+    wr.writerow(final_ingre)
