@@ -113,4 +113,6 @@ def select_recipe():
         return n/len(recipe)
     while len(recipe) < 8 or count_ingredients() > 0.5:
         recipe = create_recipe()
+    while recipe[-2] in ["to", "from", "is", "until", "and", "when", "an", "a", "or", "if", "on", "at"]:
+        recipe = recipe[:-2] + recipe[-1:]
     return ".".join(" ".join(recipe).split(" \n"))
