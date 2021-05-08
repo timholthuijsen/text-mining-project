@@ -173,7 +173,8 @@ def read_csv(csv: str = 'data/nyt-ingredients-snapshot-2015.csv') -> list:
         rows.append(d)
     return rows
     
-    
+def remove_plurals(low: list) -> list:
+    return list(set([singular(word) for word in low]))
     
     
     
