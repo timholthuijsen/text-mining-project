@@ -9,7 +9,6 @@ To combat food waste and inspire people with recipe ideas we thought of creating
 - What ingredients appear most often? And is it different between cuisines?
 - What ingredients co-appear most often? And which do not correlate? 
 - For a given dish, which dishes are most similar?
-- Can we even predict cuisines according to recipes (i.e. some ingredients combinations that are unique for a specific cuisines )
 
 ## Dataset and Setup
 1. Clone this repository
