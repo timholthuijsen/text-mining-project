@@ -11,6 +11,7 @@ from keras.layers import Dropout
 from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
+import random
 
 
 # ADAPTED FROM: https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/
@@ -18,17 +19,17 @@ from keras.utils import np_utils
 
 # --- CONFIGURE ---------------------------------------------------------------
 
-WEIGHTNAME = "test1"
+WEIGHTNAME = "final_shortened"
 N_RECIPES  = 5
 
-N_EPOCHS    = 2
+N_EPOCHS    = 20
 BATCH_SIZE  = 128
 
 # ----------------------------------------------------------------------------
 
 
-def prepare_data():
-    print("Preparing data...")
+def prepare_data(p=True):
+    if p: print("Preparing data...")
     data = pd.read_csv("data/nyt-ingredients-snapshot-2015.csv")
     names = [str(name).lower().strip(string.punctuation + " ") for name in data["name"]] + pp.list_ingredients()
     units = {str(unit).lower().strip(string.punctuation + " ") for unit in data["unit"] if len(str(unit)) < 14 and not str(unit)[0].isdigit()}
@@ -36,8 +37,8 @@ def prepare_data():
     recipes = []
     for i in range(len(databases)):
         recipes += [row for row in hp.cleanFile(databases[i]) if len(row) > 50 and not row[0].isdigit()]
-        print(f"Loaded database {i+1}/{len(databases)}")
-    print("Prepared data!\n")
+        if p: print(f"Loaded database {i+1}/{len(databases)}")
+    if p: print("Prepared data!\n")
     return (names, units, recipes)
 
 def process_data(data, dumpname=WEIGHTNAME):
@@ -50,10 +51,8 @@ def process_data(data, dumpname=WEIGHTNAME):
         for word in row.split(" "):
             word = word.strip().strip(string.punctuation + " ")
             if len(word) > 0:
-                if word in names:
+                if word in names or check_contains(word, names):
                     db.append("INGREDIENT")
-                elif word in units:
-                    db.append("UNIT")
                 else:
                     db.append(word.lower())
         db.append("\n")
@@ -96,7 +95,7 @@ def create_model(var, epochs=N_EPOCHS, batch_size=BATCH_SIZE):
     print("Created model!\n")
     return model
 
-def create_recipe(var, fname = "weights-01-5.1089.hdf5"):
+def create_recipe(var, fname = "weights-20-3.1225.hdf5"):
     X, y, dataX, dataY, words, ewords, enumbs = var
     model = Sequential()
     model.add(LSTM(256, input_shape=(X.shape[1], X.shape[2])))
@@ -121,7 +120,7 @@ def create_recipe(var, fname = "weights-01-5.1089.hdf5"):
             recipe.append(result)
             pattern.append(index)
             pattern = pattern[1:len(pattern)]
-    print(recipe)
+    # print(recipe)
     return recipe
 
 def select_recipe(var):
@@ -129,18 +128,56 @@ def select_recipe(var):
     def count_ingredients():
         n = 0
         for word in recipe:
-            if word in ["INGREDIENT", "INGREDIENT."]:
+            if "INGREDIENT" in word.upper():
                 n += 1
         return n/len(recipe)
     attempts = 0
-    while len(recipe) < 8 or count_ingredients() > 0.5:
+    while len(recipe) < 8 or count_ingredients() > 0.4:
         recipe = create_recipe(var=var)
         attempts += 1
         if attempts > 99:
             recipe = ["ERROR:", "", "", "", "Failed", "to", "generate", "a", "recipe", "\n"]
     while recipe[-2] in ["to", "from", "is", "until", "and", "when", "an", "a", "or", "if", "on", "at"]:
         recipe = recipe[:-2] + recipe[-1:]
+    ingredients = generate_ingredients()
+    j = -1
+    units = prepare_data(p=False)[1]
+    for i, word in enumerate(recipe):
+        if word == "INGREDIENT":
+            j = min(j+1, len(ingredients)-1)
+            recipe[i] = ingredients[j]
+        elif word == "UNIT":
+            recipe[i] = random.choice(list(units))
     return ".".join(" ".join(recipe).split(" \n"))
+
+def check_contains(i, l, p=False):
+    if p or len(i) > 3:
+        return (i[-1] == "s" and i[:-1] in l) or (i[-2:] == "es" and i[:-2] in l) or (i[-3:] == "ies" and i[:-3] + "y" in l)
+    return False
+
+def read_coocs():
+    raw = dict(hp.dumpRead("Cococcs of ingredients"))
+    coocs = dict()
+    for key in raw:
+        coocs[(key[0][2:-1].lower(), key[1][2:-1].lower())] = raw[key]
+    return dict(sorted(coocs.items(), key=lambda item: item[1], reverse=True))
+
+def generate_ingredients_h(il=[], init=random.choice(hp.dumpRead("model/inglist_final"))):
+    coocs = read_coocs()
+    selected = il
+    for key in coocs:
+        if len(il) < 20 and key[0] == init and key[0] not in selected:
+            selected.append(key[1])
+    return selected
+
+def generate_ingredients():
+    first = ""
+    selected = []
+    while first == "" or len(first) > 30:
+        first = random.choice(hp.dumpRead("model/inglist_final"))
+    while len(selected) < 20:
+        selected += generate_ingredients_h(init=random.choice(hp.dumpRead("model/inglist_final")))
+    return selected
 
 
 # --- RUN ---------------------------------------------------------------------
