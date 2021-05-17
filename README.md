@@ -15,8 +15,7 @@ To combat food waste and inspire people with recipe ideas we thought of creating
 2. Download the following files from https://esha.com/resources/additional-databases/
 - ArmedForcesRecipes.exl
 - CommonRecipes.exl
-- EthnicRecipes.exl
-- VegetatianRecipes.exl
+- VegetarianRecipes.exl
 3. Create a folder called "data" in this directory.
 4. Create a file named .gitignore in this directory and type "data/" inside.
 5. Move the downloaded datasets into the data folder.
