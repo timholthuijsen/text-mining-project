@@ -1,24 +1,25 @@
-# Creating an AI recipe generator
+# NLTK RNN recipe generator
 
-## Abstract
+## Introduction
 To combat food waste and inspire people with recipe ideas we thought of creating a recipe generator. The algorithm will train on a database of existing food recipes. The user will input the ingredients that he/she has left in their fridge. Accordingly, the recipe generator will generate a recipe with these ingredients. Alternatively, for those who hit a creative burnout with their cooking, supplying no ingredients to the model will result in a random selection of ingredients. The LSTM RNN model is trained on a recipe database, and accordingly learn combinations and portions of ingredients that work well together. 
 
  
 ## Research question
 Can we create a recipe generator model that generates recipes based on given ingredients or random selecetion of ingredients?
 
-## The repository contains the following files:
 
-### - Final code 
+## The repository contains the following:
+
+#### 1. Final code
 A jupyter notebook that conains all code used in the project. 
 
-### - Final report
+#### 2. Final report
 Our final project report 
 
-### - Presentation
+#### 3. Presentation
 Slide deck for class presentation
 
-### - Data folder
+#### 4. Data folder
 Contains all datasets that been used and generated.
 - ArmedForcesRecipes.exl - a dataset of armed forces recipes taken from https://esha.com/resources/additional-databases/.
 - CommonRecipes.exl - a dataset of common recipes taken from https://esha.com/resources/additional-databases/.
@@ -31,7 +32,7 @@ Contains all datasets that been used and generated.
 - Cococcs of ingredients - co-occurrences of ingredients 
 - Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
 
-### - Code Folder
+#### 5. Code Folder
 Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
 - helpers.py - helper functions to ease the cleaning and formatting processes of the data.
 - preprocess.py - lemmatization, pos-tagging and ingredients extraction 
