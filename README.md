@@ -26,7 +26,8 @@ Contains all datasets that been used and generated.
 - VegetarianRecipes.exl - a dataset of vegeterian recipes taken from https://esha.com/resources/additional-databases/.
 - train.json - a training set containing recipes id, type of cuisine, and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
 - test.json - a test set containing recipes id and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
-- final_ingr.csv - a list of ingredients extracted from train.json and test.json files.
+- final_ingr.csv - a list of 7137 ingredients extracted from train.json and test.json files.
+- ingredients.csv - a list of 10,000 ingredients extracted from https://world.openfoodfacts.org/ingredients.json used for pos-tagging of ingredients
 - nyt-ingredients-snapshot-2015.csv - extracted recipes sentences taken from https://github.com/nytimes/ingredient-phrase-tagger.
 - recipes_armed.csv - armed forces recipes after preprocessing
 - recipes_veg.csv - vegeterian recipes after preprocessing
@@ -34,6 +35,8 @@ Contains all datasets that been used and generated.
 - Cococcs of ingredients - co-occurrences of ingredients 
 - Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
 - final_shortened - proccessed data file
+- inglist_final 
+- weights-20-3.1225.hdf5
 
 #### 5. Code Folder
 Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
