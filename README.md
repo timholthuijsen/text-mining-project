@@ -1,42 +1,41 @@
 # Creating an AI recipe generator
 
 ## Abstract
-To combat food waste and inspire people with recipe ideas we thought of creating a recipe generator. The algorithm will train on a database of existing food recipes. The user will input the ingredients that he/she has left in their fridge. Accordingly, the recipe generator will generate a recipe with these ingredients. Possibly, dietary preferences such as vegetarianism, gluten-free or similar can be incorporated. The model will be trained on a recipe database, and accordingly learn combinations and portions of ingredients that work well together. 
+To combat food waste and inspire people with recipe ideas we thought of creating a recipe generator. The algorithm will train on a database of existing food recipes. The user will input the ingredients that he/she has left in their fridge. Accordingly, the recipe generator will generate a recipe with these ingredients. Alternatively, for those who hit a creative burnout with their cooking, supplying no ingredients to the model will result in a random selection of ingredients. The LSTM RNN model is trained on a recipe database, and accordingly learn combinations and portions of ingredients that work well together. 
 
  
-## Research questions
-- What recipe can we make with the ingredients we have in my fridge?
-- What ingredients appear most often? And is it different between cuisines?
-- What ingredients co-appear most often? And which do not correlate? 
-- For a given dish, which dishes are most similar?
+## Research question
+Can we create a recipe generator model that generated recipes based on given ingredients or random selecetion?
 
-## Dataset and Setup
-1. Clone this repository
-2. Download the following files from https://esha.com/resources/additional-databases/
-- ArmedForcesRecipes.exl
-- CommonRecipes.exl
-- VegetarianRecipes.exl
-3. Create a folder called "data" in this directory.
-4. Create a file named .gitignore in this directory and type "data/" inside.
-5. Move the downloaded datasets into the data folder.
+## The repository contains the following files:
 
+# - Final code 
+A jupyter notebook that conains all code used in the project. 
 
-## A tentative list of milestones for the project
-Tasks distribution will be determined later, with fair work distribution in mind.
-- Download datasets of recipes and merge them to create a one big united dataset (ideally, if we find more than one database)
-- Exploring the datasets (columns, features, shape etc)
-- Preprocessing (choose features. e.g. ingredients, cooking time, portions etc.)
-- Separate NLP processing for ingredients and instructions
-- NLP - for ingredients (quantity, unit, type, food, preparation)
-- NLP - for instructions (consists of time, temperature, actions, tools and ingredients)
-- Analyze which verbs go with what ingredient (e.g. you don’t fry milk)
-- Using LSTM for text generation
-- Testing the output recipe (i.e. cook it!)
-- Making adjustments if needed 
+# - Final report
+Our final project report 
 
+# - Presentation
+Slide deck for class presentation
 
-## Documentation
-SOURCES
-https://www.kdnuggets.com/2020/07/generating-cooking-recipes-using-tensorflow.html
-https://github.com/derekdjia/AI_Generated_Recipes#21-data-cleaning
-https://cosylab.iiitd.edu.in/recipedb/ 
+# - Data folder
+Contains all datasets that been used and generated.
+- ArmedForcesRecipes.exl - a dataset of armed forces recipes taken from https://esha.com/resources/additional-databases/.
+- CommonRecipes.exl - a dataset of common recipes taken from https://esha.com/resources/additional-databases/.
+- VegetarianRecipes.exl - a dataset of vegeterian recipes taken from https://esha.com/resources/additional-databases/.
+- final_ingr.csv - a list of ingredients extracted from train.json and test.json files taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
+- nyt-ingredients-snapshot-2015.csv - extracted recipes sentences taken from https://github.com/nytimes/ingredient-phrase-tagger.
+- recipes_armed.csv - armed forces recipes after preprocessing
+- recipes_veg.csv - vegeterian recipes after preprocessing
+- recipes_common.csv - common recipes after preprocessing
+- Cococcs of ingredients - co-occurrences of ingredients 
+- Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
+
+# - Code Folder
+Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
+- helpers.py - helper functions to ease the cleaning and formatting processes of the data.
+- preprocess.py - lemmatization, pos-tagging and ingredients extraction 
+- Preprocessing - Separating Recipes.ipynb - apply preprocessing on recipes datasets
+- Correlation of ingredients.ipynb - co-occurrences of ingredients vs ingredients and ingredients vs verbs
+- lstm.py - LSTM model 
+- train_model.py - training the model
