@@ -9,16 +9,16 @@ Can we create a recipe generator model that generated recipes based on given ing
 
 ## The repository contains the following files:
 
-# - Final code 
+### - Final code 
 A jupyter notebook that conains all code used in the project. 
 
-# - Final report
+### - Final report
 Our final project report 
 
-# - Presentation
+### - Presentation
 Slide deck for class presentation
 
-# - Data folder
+### - Data folder
 Contains all datasets that been used and generated.
 - ArmedForcesRecipes.exl - a dataset of armed forces recipes taken from https://esha.com/resources/additional-databases/.
 - CommonRecipes.exl - a dataset of common recipes taken from https://esha.com/resources/additional-databases/.
@@ -31,7 +31,7 @@ Contains all datasets that been used and generated.
 - Cococcs of ingredients - co-occurrences of ingredients 
 - Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
 
-# - Code Folder
+### - Code Folder
 Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
 - helpers.py - helper functions to ease the cleaning and formatting processes of the data.
 - preprocess.py - lemmatization, pos-tagging and ingredients extraction 
