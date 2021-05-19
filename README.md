@@ -33,6 +33,7 @@ Contains all datasets that been used and generated.
 - recipes_common.csv - common recipes after preprocessing
 - Cococcs of ingredients - co-occurrences of ingredients 
 - Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
+- final_shortened - proccessed data file
 
 #### 5. Code Folder
 Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
