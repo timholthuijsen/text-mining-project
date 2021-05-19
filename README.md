@@ -13,10 +13,10 @@ Can we create a recipe generator model that generates recipes based on given ing
 #### 1. FinalCode.ipynb
 A jupyter notebook that conains all code used in the project. 
 
-#### 2. Final report
+#### 2. Final report.pdf
 Our final project report 
 
-#### 3. recipe generator presentation.pdf
+#### 3. Recipe generator presentation.pdf
 Slide deck for class presentation
 
 #### 4. Data folder
