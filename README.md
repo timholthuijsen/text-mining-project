@@ -10,7 +10,7 @@ Can we create a recipe generator model that generates recipes based on given ing
 
 ## The repository contains the following:
 
-#### 1. Final code
+#### 1. FinalCode.ipynb
 A jupyter notebook that conains all code used in the project. 
 
 #### 2. Final report
@@ -27,7 +27,7 @@ Contains all datasets that been used and generated.
 - train.json - a training set containing recipes id, type of cuisine, and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
 - test.json - a test set containing recipes id and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
 - final_ingr.csv - a list of 7137 ingredients extracted from train.json and test.json files.
-- ingredients.csv - a list of 10,000 ingredients extracted from https://world.openfoodfacts.org/ingredients.json used for pos-tagging of ingredients
+- ingredients.csv - a list of 10000 ingredients extracted from https://world.openfoodfacts.org/ingredients.json used for pos-tagging of ingredients
 - nyt-ingredients-snapshot-2015.csv - extracted recipes sentences taken from https://github.com/nytimes/ingredient-phrase-tagger.
 - recipes_armed.csv - armed forces recipes after preprocessing
 - recipes_veg.csv - vegeterian recipes after preprocessing
@@ -44,5 +44,5 @@ Contains all jupyter notebooks and spyder scripts we worked on throughout the pr
 - preprocess.py - lemmatization, pos-tagging and ingredients extraction 
 - Preprocessing - Separating Recipes.ipynb - apply preprocessing on recipes datasets
 - Correlation of ingredients.ipynb - co-occurrences of ingredients vs ingredients and ingredients vs verbs
-- lstm.py - LSTM model 
-- train_model.py - training the model
+- lstm.py - our LSTM model 
+
