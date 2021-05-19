@@ -34,9 +34,9 @@ Contains all datasets that been used and generated.
 - recipes_common.csv - common recipes after preprocessing
 - Cococcs of ingredients - co-occurrences of ingredients 
 - Cococcs of ingredients vs verbs - co-occurrences of ingredients vs verbs
-- final_shortened - proccessed data file
-- inglist_final 
-- weights-20-3.1225.hdf5
+- final_shortened - processed data file used to train the LSTM model
+- inglist_final - final, processed ingredients list with no duplicates and no plural words
+- weights-20-3.1225.hdf5 - the model we used for text generation, to avoid training the model over and pver every time
 
 #### 5. Code Folder
 Contains all jupyter notebooks and spyder scripts we worked on throughout the project. All the code presented in this folder can be found in 'final code' notebook mentioned above.
@@ -45,4 +45,3 @@ Contains all jupyter notebooks and spyder scripts we worked on throughout the pr
 - Preprocessing - Separating Recipes.ipynb - apply preprocessing on recipes datasets
 - Correlation of ingredients.ipynb - co-occurrences of ingredients vs ingredients and ingredients vs verbs
 - lstm.py - our LSTM model 
-
