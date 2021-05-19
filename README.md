@@ -16,7 +16,7 @@ A jupyter notebook that conains all code used in the project.
 #### 2. Final report
 Our final project report 
 
-#### 3. Presentation
+#### 3. recipe generator presentation.pdf
 Slide deck for class presentation
 
 #### 4. Data folder
