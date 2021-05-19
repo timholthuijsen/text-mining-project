@@ -5,7 +5,7 @@ To combat food waste and inspire people with recipe ideas we thought of creating
 
  
 ## Research question
-Can we create a recipe generator model that generated recipes based on given ingredients or random selecetion?
+Can we create a recipe generator model that generates recipes based on given ingredients or random selecetion of ingredients?
 
 ## The repository contains the following files:
 
