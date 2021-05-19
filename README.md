@@ -24,7 +24,9 @@ Contains all datasets that been used and generated.
 - ArmedForcesRecipes.exl - a dataset of armed forces recipes taken from https://esha.com/resources/additional-databases/.
 - CommonRecipes.exl - a dataset of common recipes taken from https://esha.com/resources/additional-databases/.
 - VegetarianRecipes.exl - a dataset of vegeterian recipes taken from https://esha.com/resources/additional-databases/.
-- final_ingr.csv - a list of ingredients extracted from train.json and test.json files taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
+- train.json - a training set containing recipes id, type of cuisine, and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
+- test.json - a test set containing recipes id and list of ingredients taken from https://www.kaggle.com/kaggle/recipe-ingredients-dataset.
+- final_ingr.csv - a list of ingredients extracted from train.json and test.json files.
 - nyt-ingredients-snapshot-2015.csv - extracted recipes sentences taken from https://github.com/nytimes/ingredient-phrase-tagger.
 - recipes_armed.csv - armed forces recipes after preprocessing
 - recipes_veg.csv - vegeterian recipes after preprocessing
